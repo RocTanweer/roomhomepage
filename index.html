@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="./dest/css/style.css">
+    <!-- GSAP CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+        integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- custom JavaScript -->
+    <script defer src="./app/js/script.js"></script>
+    <!-- Icon -->
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <title>Room homepage</title>
+</head>
+<body>
+    <div class="intro">
+        <div class="intro__text">
+            <h1 class="hide intro__text-challenger">
+                <span class="text smallText">
+                    frontend mentor
+                </span>
+            </h1>
+
+            <h1 class="hide intro__text-page">
+                <span class="text pageName">
+                    room homepage
+                </span>
+            </h1>
+
+            <h1 class="hide intro__text-coder">
+                <span class="text smallText">
+                    by <span class="myname">
+                        roctanweer
+                    </span>
+                </span>
+            </h1>
+        </div>
+    </div>
+
+    <div class="slide"></div>
+
+    <div class="top-section">
+        <header class="top-section__header">
+            <nav class="top-section__header-deskNav">
+                <div id="hamBtn" class="top-section__header-deskNav-hambtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+
+                <div id="mobMenu" class="top-section__header-mobNav">
+                    <ul class="top-section__header-mobNav-list">
+                        <li><a href="" class="top-section__header-mobNav-list-link">home</a></li>
+                        <li><a href="" class="top-section__header-mobNav-list-link">shop</a></li>
+                        <li><a href="" class="top-section__header-mobNav-list-link">about</a></li>
+                        <li><a href="" class="top-section__header-mobNav-list-link">contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="top-section__header-deskNav-logoContainer">
+                    <a href="#"><img src="./images/logo.svg" alt="main-logo"></a>
+                </div>
+
+                <ul class="top-section__header-deskNav-list">
+                    <li><a href="#" class="top-section__header-deskNav-list-link">home</a></li>
+                    <li><a href="#" class="top-section__header-deskNav-list-link">shop</a></li>
+                    <li><a href="#" class="top-section__header-deskNav-list-link">about</a></li>
+                    <li><a href="#" class="top-section__header-deskNav-list-link">contact</a></li>
+                </ul>
+
+                <div id="overlay" class="top-section__header-deskNav-overlay"></div>
+
+                <div class="toCenter"></div>
+            </nav>
+
+            <picture id="1" class="imgContainer pictures">
+                <source media="(max-width:375px)" srcset="./images/mobile-image-hero-1.jpg">
+                <img src="./images/desktop-image-hero-1.jpg" alt="product-image-1">
+            </picture>
+
+            <picture id="2" class="pictures">
+                <source media="(max-width:375px)" srcset="./images/mobile-image-hero-2.jpg">
+                <img src="./images/desktop-image-hero-2.jpg" alt="product-image-1">
+            </picture>
+
+            <picture id="3" class="pictures">
+                <source media="(max-width:375px)" srcset="./images/mobile-image-hero-3.jpg">
+                <img src="./images/desktop-image-hero-3.jpg" alt="product-image-1">
+            </picture>
+
+            <div class="top-section__header-changeslide">
+                <button id="prev" class="top-section__header-changeslide-btn">
+                    <img src="./images/icon-angle-left.svg" alt="left-arrow">
+                </button>
+                <button id="next" class="top-section__header-changeslide-btn">
+                    <img src="./images/icon-angle-right.svg" alt="right-arrow">
+                </button>
+            </div>
+        </header>
+
+        <section class="top-section__hero">
+            <div class="top-section__hero-wrapper">
+                <div class="top-section__hero-wrapper-slider">
+                    <div id="lastClone" data-tab="3" data-focus="1" class="top-section__hero-wrapper-slider-element">
+                        <h1>
+                            Manufactured with the best materials
+                        </h1>
+                        <p>
+                            Our modern furniture store provide a high level of quality. Our company has invested in
+                            advanced technology
+                            to ensure that every product is made as perfect and as consistent as possible. With three
+                            decades of
+                            experience in this industry, we understand what customers want for their home and office.
+                        </p>
+                        <a id="shopnow" href="#">shop now <span><svg width="40" height="12"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z"
+                                        fill-rule="nonzero" />
+                                </svg></span></a>
+                    </div>
+
+                    <div data-tab="1" data-focus="2" class="top-section__hero-wrapper-slider-element">
+                        <h1>
+                            Discover innovative ways to decorate
+                        </h1>
+                        <p>
+                            We provide unmatched quality, comfort, and style for property owners across the country.
+                            Our experts combine form and function in bringing your vision to life. Create a room in your
+                            own style with our collection and make your property a reflection of you and what you love.
+                        </p>
+                        <a id="shopnow" href="#">shop now <span><svg width="40" height="12"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z"
+                                        fill-rule="nonzero" />
+                                </svg></span></a>
+                    </div>
+
+                    <div data-tab="2" data-focus="3" class="top-section__hero-wrapper-slider-element">
+                        <h1>
+                            We are available all across the globe
+                        </h1>
+                        <p>
+                            With stores all over the world, it's easy for you to find furniture for your home or place
+                            of business.
+                            Locally, we’re in most major cities throughout the country. Find the branch nearest you
+                            using our
+                            store locator. Any questions? Don't hesitate to contact us today.
+                        </p>
+                        <a id="shopnow" href="#">shop now <span><svg width="40" height="12"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z"
+                                        fill-rule="nonzero" />
+                                </svg></span></a>
+                    </div>
+
+                    <div data-tab="3" data-focus="4" class="top-section__hero-wrapper-slider-element">
+                        <h1>
+                            Manufactured with the best materials
+                        </h1>
+                        <p>
+                            Our modern furniture store provide a high level of quality. Our company has invested in
+                            advanced technology
+                            to ensure that every product is made as perfect and as consistent as possible. With three
+                            decades of
+                            experience in this industry, we understand what customers want for their home and office.
+                        </p>
+                        <a id="shopnow" href="#">shop now <span><svg width="40" height="12"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z"
+                                        fill-rule="nonzero" />
+                                </svg></span></a>
+                    </div>
+
+                    <div data-tab="1" data-focus="5" id="firstClone" class="top-section__hero-wrapper-slider-element">
+                        <h1>
+                            Discover innovative ways to decorate
+                        </h1>
+                        <p>
+                            We provide unmatched quality, comfort, and style for property owners across the country.
+                            Our experts combine form and function in bringing your vision to life. Create a room in your
+                            own style with our collection and make your property a reflection of you and what you love.
+                        </p>
+                        <a id="shopnow" href="#">shop now <span><svg width="40" height="12"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z"
+                                        fill-rule="nonzero" />
+                                </svg></span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="about">
+        <div class="about__img1">
+            <img src="./images/image-about-dark.jpg" alt="image-about-dark">
+        </div>
+
+        <div class="about__content">
+            <div class="about__content-wrapper">
+                <h2>
+                    About our furniture
+                </h2>
+                
+                <p>
+                    Our multifunctional collection blends design and function to suit your individual taste.
+                    Make each room unique, or pick a cohesive theme that best express your interests and what
+                    inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+                    or anything in between. Product specialists are available to help you create your dream space.
+                </p>
+            </div>
+        </div>
+
+        <div class="about__img2">
+            <img src="./images/image-about-light.jpg" alt="image-about-light">
+        </div>
+    </section>
+</body>
+
+</html>

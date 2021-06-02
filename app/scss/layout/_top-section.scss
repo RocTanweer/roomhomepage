@@ -1,0 +1,390 @@
+@use '../reusable' as *;
+@use  '../abstract' as ab;
+
+
+.top-section {
+    width: 100%;
+    height: rem(534);
+    @extend %flex;
+
+    @include responsive(tab) {
+        flex-direction: column;
+        height: auto;
+    }
+
+    @include responsive(large) {
+        margin-bottom: rem(72);
+    }
+
+    &__header {
+        position: relative;
+        flex: 1 2 auto;
+        min-width: 0;  // to allow it to shrink // default auto
+        @extend %grid;  // for picture element
+
+        @include responsive(tab) {
+            margin-bottom: rem(31);
+        }
+
+        @include responsive(large) {
+            margin-bottom: rem(73);
+        }
+
+        picture {
+            grid-column: 1 / 2;  // only way to span it across the container
+            grid-row: 1 / 2;
+            animation: picFadeOut 1s ease-in-out;
+
+            &.imgContainer {
+                animation: picFadeIn 1s ease-in-out forwards;
+                display: block;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;  // so that the image will cover the entire container while maintaining the aspect ratio
+            }
+        }
+
+        &-changeslide {
+            position: absolute;
+            bottom: 0;
+            right: rem(-160);
+            width: rem(160);
+            height: rem(80);
+            @extend %flex;
+
+            @include responsive(tab) {
+                right: rem(0);
+            }
+
+            @include responsive(large) {
+                width: rem(112);
+                height: rem(56);
+            }
+
+            &-btn {
+                @extend %buttonreset;
+                width: 50%;
+                height: 100%;
+                background-color: ab.$black;
+                @include trans(background-color);
+
+                &:focus-visible{
+                    background-color: ab.$veryDarkGray;
+                    transform: scale(1.03);
+                }
+
+                @include hoverable(hover) {
+                    &:hover {
+                        background-color: ab.$veryDarkGray;
+                        transform: scale(1.03);
+                    }
+
+                    &:active {
+                        background-color: ab.$black;
+                        transform: scale(1);
+                    }
+                }
+
+                @include hoverable(notHover) {
+                    &:active {
+                        background-color: ab.$veryDarkGray;
+                        transform: scale(1.04);
+                    }
+                }
+            }
+        }
+
+        &-deskNav {
+            position: absolute;
+            z-index: 1;
+            top: rem(64);
+            left: 0;
+            width: 100%;
+            padding: 0 rem(64);
+            @extend %flex;
+            justify-content: flex-start;
+
+            @include responsive(large) {
+                justify-content: space-between;
+            }
+
+            @include responsive(small) {
+                top: rem(47);
+                padding: 0 rem(23);
+            }
+
+            &-list {
+                @extend %listreset;
+                @extend %flex;
+                margin-left: rem(57);
+
+                @include responsive(large) {
+                    display: none;
+                }
+
+                li {
+                    &:not(:last-child) {
+                        margin-right: rem(33);
+                    }
+                }
+
+                &-link {    
+                    @extend %linkreset;
+                    position: relative;
+                    font-weight: 700;
+
+                    @include hoverable(hover) {
+                        &:hover {
+                            &::after {
+                                transform: translateX(-50%) scaleX(1);
+                            }
+                        }
+                    }
+
+                    @include hoverable(notHover) {
+                        &:active {
+                            &::after {
+                                transform: translateX(-50%) scaleX(1);
+                            }
+                        }
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        height: 2px;
+                        width: 100%;
+                        bottom: -9px;
+                        left: 50%;
+                        transform: translateX(-50%) scaleX(0);
+                        background-color: white;
+                        @include trans(transform)
+                    }
+                }
+            }
+
+            &-hambtn {
+                display: none;
+                width: rem(25);
+                height: rem(15);
+                cursor: pointer;
+                position: relative;
+                flex-flow: column wrap;
+                justify-content: space-between;
+                z-index: 4;
+
+                @include responsive(large) {
+                    display: flex;
+                }
+
+                @include responsive(small) {
+                    width: rem(19);
+                }
+
+                &.hamAnimation {
+                    span {
+                        transition: opacity 300ms ease-in-out, transform 300ms ease-in-out 300ms, top 300ms ease-in-out, background-color 600ms ease-in-out;
+                        background-color: ab.$darkGray;
+                    }
+
+                    span:nth-child(2){
+                        opacity: 0;
+                    }
+
+                    span:nth-child(1) {
+                        top: 40%;
+                        transform: rotate(45deg);
+                    }  
+                    
+                    span:nth-child(3) {
+                        top: 40%;
+                        transform: rotate(-45deg);
+                    }
+                }
+
+                span {
+                    display: inline-block;
+                    width: 100%;
+                    height: rem(2);
+                    background-color: ab.$white;
+                    opacity: 1;
+                    transition: opacity 300ms ease-in-out 300ms, transform 300ms ease-in-out 0ms, top 300ms ease-in-out 300ms;
+                    position: absolute;
+                    transform: rotate(0deg);
+
+                    &:nth-child(1) {
+                        top: 0%;
+                    }
+
+                    &:nth-child(2) {
+                        top: 40%;
+                    }
+
+                    &:nth-child(3) {
+                        top: 80%;
+                    }
+
+                }
+
+
+            }
+
+            &-overlay {
+                display: none;
+                position: fixed;
+                top: 0%;
+                left: 0%;
+                right: 0%;
+                bottom: 0%;
+                background-color: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                z-index: 2;
+                transition: all 600ms ease-in-out;
+
+                @include responsive(large) {
+                    display: block;
+                }
+
+                &.activeOverlay {
+                    visibility: visible;
+                    opacity: 1;
+                    transition: all 600ms ease-in-out;
+                }
+            }
+        }
+
+        &-mobNav {
+            @extend %flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            top: -64px;
+            width: 100%;
+            background-color: ab.$white;
+            z-index: 3;
+            height: rem(146);
+            padding: 0 rem(50);
+            display: none;
+
+            @include responsive(large){
+                display: flex;
+                transform: translateY(-100%);
+                @include trans(transform);
+            }
+
+            @include responsive(small) {
+                height: rem(112);
+                top: -47px;
+                padding: 0 rem(26);
+            }
+
+            &.active {
+                transform: translateY(0%);
+            }
+
+            &-list {
+                @extend %flex;
+                @extend %listreset;
+
+                li {
+                    &:not(:last-child) {
+                        margin-right: rem(33);
+
+                        @include responsive(small) {
+                            margin-right: rem(20);
+                        }
+                    }
+                }
+
+                &-link {
+                    @extend %linkreset;
+                    color: ab.$black;
+                    font-weight: 700;
+                    font-size: rem(14);
+
+                    @include responsive(small) {
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+
+        .forCenter {
+            width: 19px;
+        }
+    }
+
+    &__hero {
+        flex: 1 1 rem(600);
+        @extend %flex;
+        align-items: center;
+
+        @include responsive(tab) {
+            flex: 1 1 rem(264);
+        }
+        
+        &-wrapper {
+            min-width: rem(220);  // has effect when content is less wider amd no effect when content is wider
+            width: 29.3vw;
+            margin: 0 auto;
+            overflow: hidden;
+
+            @include responsive(tab) {
+                width: 82.4vw;
+            }
+
+            &-slider {
+                width: 100%;
+                height: 100%;
+                @extend %flex;
+
+                &-element {
+                    min-width: 29.3vw;
+                    flex: 1 0 100%;
+
+                    #shopnow {
+                        @extend %linkreset;
+                        display: inline-flex;
+                        align-items: center;
+                        color: ab.$black;
+                        font-weight: 700;
+                        letter-spacing: rem(10);
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        @include trans(color);
+
+                        &:hover{
+                            color: ab.$darkGray;
+
+                            span {
+                                fill: ab.$darkGray;
+                            }
+                        }
+
+                        &:focus-visible {   // allow only the keyboard user to have outline when focus
+                            outline: 2px dotted  ab.$veryDarkGray;
+                        }
+
+                        &:active {
+                            color: ab.$black;
+
+                            span {
+                                fill: #000;
+                            }
+                        }
+
+                        span {
+                            fill: #000;
+                            @include trans(fill);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,89 @@
+@use '../reusable' as *;
+@use '../abstract' as *;
+
+.intro {
+    @extend %flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    z-index: 10;
+
+    &__text {
+
+        .hide {
+            color: #fff;
+            line-height: inherit;
+            letter-spacing: inherit;
+            overflow: hidden;
+        }
+
+        .text {
+            display: inline-block;
+        }
+
+        &-challenger {
+            text-transform: capitalize;
+            font-size: rem(25);
+            text-align: left;
+
+            @include responsive(large) {
+                font-size: calc(16px + (25 - 16) * ((100vw - 375px) / (807 - 375)));
+            }
+            
+            .text {
+                transform: translateX(-100%);
+                opacity: 0;
+                color: #b0dce4;
+            }
+        }
+
+        &-page {
+            text-transform: capitalize;
+            font-size: rem(60);
+            text-align: center;
+            font-weight: 700;
+
+            @include responsive(large) {
+                font-size: calc(32px + (60 - 32) * ((100vw - 375px) / (807 - 375)));
+            }
+            
+            .text {
+                transform: translateY(100%);
+            }
+        }
+
+        &-coder {
+            text-align: left;
+            font-size: rem(30);
+
+            @include responsive(large) {
+                font-size: calc(18px + (30 - 18) * ((100vw - 375px) / (807 - 375)));
+            }
+            
+            .text {
+                transform: translateX(-100%);
+                opacity: 0;
+                
+                .myname {
+                    color: $darkGray;
+                }
+            }
+        }
+    }
+}
+
+.slide{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 11;
+    transform: translateX(-100%);
+}

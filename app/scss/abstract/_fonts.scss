@@ -1,0 +1,4 @@
+@use '../reusable' as re;
+
+$fontFamily : 'Spartan', sans-serif; // 500 600 700
+$fontSize : re.rem(12); 

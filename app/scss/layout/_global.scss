@@ -1,0 +1,76 @@
+@use '../abstract/' as ab;
+@use '../reusable' as re;
+@use 'sass:math';
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-size: ab.$fontSize;
+    font-family: ab.$fontFamily;
+}
+
+h1, h3 {
+    color: ab.$black;
+}
+
+h1 {
+    font-size: re.rem(40);
+    font-weight: 600;
+    letter-spacing: -2px;
+    line-height: re.rem(44);
+    margin-bottom: re.rem(25);
+
+    @include re.responsive(tab) {
+        font-size: calc(28px + 12 * ((100vw - 375px) / (1024 - 375)));
+        letter-spacing: -1px;
+        margin-bottom: re.rem(16);
+    }
+
+    @include re.responsive(small) {
+        line-height: 1.75rem;
+    }
+}
+
+h2 {
+    font-size: re.rem(12);
+    letter-spacing: 4px;
+    word-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: re.rem(12);
+    font-weight: 700;
+}
+
+p {
+    font-size: re.rem(13);
+    color: ab.$darkGray;
+    line-height: re.rem(20);
+    margin-bottom: re.rem(32);
+
+    @include re.responsive(tab) {
+        margin-bottom: re.rem(40);
+        font-size: calc(12px + 1 * ((100vw - 375px) / (1024 - 375)));
+    }
+
+    @include re.responsive(large) {
+        margin-bottom: re.rem(57);
+    }
+}
+
+.noOverFlow {
+    overflow: hidden;
+}
+
+
+

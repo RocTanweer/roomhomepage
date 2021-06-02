@@ -1,0 +1,72 @@
+@use '../reusable' as *;
+@use '../abstract' as *;
+
+.about {
+    @extend %flex;
+    height: 16.625rem;
+    width: 100%;
+
+    @include responsive(large) {
+        flex-direction: column;
+    }
+
+    &__img1 {
+        flex: 1 2 auto;
+
+        @include responsive(large) {
+            margin-bottom: rem(61);
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        @extend %flex;
+        width: rem(581);
+        align-items: center;
+
+        @include responsive(desktop) {
+            width: calc(381px + (581 - 381) * ((100vw - 1025px) / (1440 - 1025)));
+        }
+
+        @include responsive(large) {
+            width: 100%;
+        }
+
+        &-wrapper {
+            width: rem(484);
+            margin: 0 auto;
+
+            @include responsive(tab) {
+                width: 18.25rem;
+            }
+
+            @include responsive(large) {
+                width: calc(305px + (664 - 305) * ((100vw - 375px) / (807 - 375)));
+            }
+
+            p{
+                margin-bottom: 0;
+                font-size: rem(12);
+
+                @include responsive(large) {
+                    margin-bottom: rem(61);
+                }
+            }
+        }
+    }
+
+    &__img2 {
+        flex: 1 2 auto;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
